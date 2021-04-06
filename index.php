@@ -76,20 +76,21 @@
                   <div class="col-md-12 text-center">
 
                     <!-- CANVAS FOR DISPLAYING CAPTURED IMAGE -->
-                    <div class="d-none canvasDiv">
-                      <img src="" class="img-fluid z-depth-1 canvasImage" alt=" ">
-                      <canvas id="canvas" max-width="460" height="300"></canvas>
+                    <div class="d-none canvasDiv col-md-8 mx-auto">
+                      <img src="" class="img-fluid canvasImage" alt=" ">
+                      <canvas id="canvas" max-width="200" height="200"></canvas>
                       <div class="col-lg-12">
-                        <button type="reset" class="btn btn-success reset">Reset</button>
+                        <button type="reset" class="btn btn-success btn-sm reset">Reset</button>
                       </div>
                     </div>
                     <!-- CANVAS FOR DISPLAYING CAPTURED IMAGE -->
                     
-                    <div class="view col-md-8 container-fluid">
-                      <video id="video" max-width="460" height="300" autoplay></video>
+                    <div class="view col-md-8 mx-auto">
+                      <video id="video" max-width="200" height="200" autoplay></video>
                       <div class="mask pattern-1 flex-center waves-effect waves-light" id="snap">
                         <p class="white-text">
-                          <i class="fa fa-camera"></i>
+                          <i class="fa fa-2x fa-camera"></i>
+                          <!-- Click to capture -->
                         </p>
                       </div>
                     </div>
@@ -114,8 +115,10 @@
                         </div>
                         <small id="spinText"></small>
                       </div>
-
                     </form>
+                    <div class="mt-2 text-right">
+                      Have an account? <a href="login/">Login</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -190,12 +193,17 @@
 					navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } }).then(function(stream) {
 						video.srcObject = stream;
 						video.play();
-					});
+					}).catch(function(error) {
+            swal('Camera Mode', 'Failed to open camera. Kindly, grant permission', 'error');
+        });
 				}
+        context.fillStyle = "black";
+      context.fillRect(10, 10, 200, 200);
+      context.save();
 
 				// Trigger photo take
 				$("#snap").click(function() {
-          context.drawImage(video, -75, 0, 420, 310);
+          context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight, 0, 0, 300, 200);
           $('.canvasImage').attr('src', canvas.toDataURL());
           $('.canvasDiv').removeClass('d-none');
           $('.view').addClass('d-none');
