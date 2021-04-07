@@ -25,28 +25,12 @@
   <!-- ===================================================================================== -->
   <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
   <!-- ===================================================================================== -->
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-  <!-- ===================================================================================== -->
 
   <style>
-    .form-dark .font-small {
-      font-size: 0.8rem; }
+    main {
+      margin-top: 120px;
+    }
 
-    .form-dark .md-form label {
-      color: #fff; }
-
-    .md-form input[type=text]:focus:not([readonly]) {
-      border-bottom: 1px solid #00C851;
-      -webkit-box-shadow: 0 1px 0 0 #00C851;
-      box-shadow: 0 1px 0 0 #00C851; }
-
-    .form-dark input[type=text]:focus:not([readonly]) + label {
-      color: #fff; }
-
-    .form-dark .modal-header {
-        border-bottom: none;
-		}
-		
     #canvas {
       border:1px solid red;
       width: 100%;
@@ -62,13 +46,45 @@
       <?php include 'header.html'; ?>
     </header>
       <!--Main Navigation-->
+
   <!--Main layout-->
-  <main class="mx-lg-3">
+  <main>
 
     <div class="container-fluid">
 
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body px-lg-4 pt-2">
+            <form method="POST">
+              <div class="">
+                <input type="text" id="userID" name="username" class="form-control" required>
+                <label for="userID">Username</label>
+              </div>
+              <div class="">
+                <input type="text" id="password" name="password" class="form-control" required>
+                <label for="password">Alternative Password</label>
+              </div>
+
+              <div class="my-3 text-center">
+                <button class="btn btn-outline-success btn-md waves-effect z-depth-0" name="createUser" type="submit">Create User</button>
+              </div>
+            
+              <div class="col-md-12 text-center">
+                <div class="spinner-grow spinner-grow-sm text-success d-none" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <small id="spinText"></small>
+              </div>
+            </form>
+            <div class="my-3 text-right">
+              Have an account? <a href="login/">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="row justify-content-md-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card">
             
                 <div class="card-body px-lg-5 pt-2">
@@ -76,7 +92,7 @@
                   <div class="col-md-12 text-center">
 
                     <!-- CANVAS FOR DISPLAYING CAPTURED IMAGE -->
-                    <div class="d-none canvasDiv col-md-8 mx-auto">
+                    <div class="d-none canvasDiv">
                       <img src="" class="img-fluid canvasImage" alt=" ">
                       <canvas id="canvas" max-width="200" height="200"></canvas>
                       <div class="col-lg-12">
@@ -85,7 +101,7 @@
                     </div>
                     <!-- CANVAS FOR DISPLAYING CAPTURED IMAGE -->
                     
-                    <div class="view col-md-8 mx-auto">
+                    <div class="view">
                       <video id="video" max-width="200" height="200" autoplay></video>
                       <div class="mask pattern-1 flex-center waves-effect waves-light" id="snap">
                         <p class="white-text">
@@ -125,8 +141,6 @@
       </div>
 
 		</div>
-		<br>
-		<br>
 
   </main>
   
@@ -195,11 +209,8 @@
 						video.play();
 					}).catch(function(error) {
             swal('Camera Mode', 'Failed to open camera. Kindly, grant permission', 'error');
-        });
+          });
 				}
-        context.fillStyle = "black";
-      context.fillRect(10, 10, 200, 200);
-      context.save();
 
 				// Trigger photo take
 				$("#snap").click(function() {
