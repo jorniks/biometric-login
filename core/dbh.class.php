@@ -3,15 +3,16 @@
   date_default_timezone_set("Africa/Lagos");
   use Aws\Rekognition\RekognitionClient;
   use Aws\Exception\AwsException;
+  
 
   class Dbh {
     public $client;
 
     public function connect() {
-      $dbUser = 'DB_USERNAME';
-      $dbHost = 'DB_HOST';
-      $dbPassword = 'DB_PASSWORD';
-      $database = 'DB_DATABASE';
+      $dbUser = getenv('DB_USERNAME');
+      $dbHost = getenv('DB_HOST');
+      $dbPassword = getenv('DB_PASSWORD');
+      $database = getenv('DB_DATABASE');
 
 
       try {
@@ -29,11 +30,11 @@
 
     public function rekognition() {
       $options = [
-        'region' => 'AWS_DEFAULT_REGION',
-        'version' => 'AWS_VERSION',
+        'region' => getenv('AWS_DEFAULT_REGION'),
+        'version' => getenv('AWS_VERSION'),
         'credentials' => array(
-          'key'  => 'AWS_ACCESS_KEY_ID',
-          'secret' => 'AWS_SECRET_ACCESS_KEY',
+          'key'  => getenv('AWS_ACCESS_KEY_ID'),
+          'secret' => getenv('AWS_SECRET_ACCESS_KEY'),
         )
       ];
       $this->client = new RekognitionClient($options);

@@ -1,5 +1,6 @@
 <?php
   require_once 'includes/class-autoloader.php';
+  include 'includes/env-autoload.php';
   $users = new Users();
 
   
