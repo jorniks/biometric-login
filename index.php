@@ -47,7 +47,7 @@
 <body class="black-skin">
 
     <header class="topbar mb-4">
-      <?php include 'header.html'; ?>
+      <?php include 'header.php'; ?>
     </header>
       <!--Main Navigation-->
 
