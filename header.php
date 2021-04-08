@@ -1,6 +1,3 @@
-<?php
-  include 'includes/env-autoload.php';
-?>
 
   <nav class="navbar fixed-top navbar-dark">
     <div class="float-left">

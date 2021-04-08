@@ -1,8 +1,6 @@
 
 <?php
-  // include 'includes/class-autoloader.php';
-  // require 'vendor/autoload.php';
-  // require('core/users.class.php');
+  include 'includes/env-autoload.php';
 ?>
 
 
@@ -11,45 +9,21 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Register - Facial Recognition</title>
-  <!-- ===================================================================================== -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- ===================================================================================== -->
+  <title>Register - <?=getenv('APP_NAME')?></title>
+  <!-- ========================================================================== -->
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-  <!-- ===================================================================================== -->
+  <!-- ========================================================================== -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!-- ===================================================================================== -->
+  <!-- ========================================================================== -->
   <link rel="stylesheet" href="assets/css/mdb.min.css">
-  <!-- ===================================================================================== -->
-  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
-  <!-- ===================================================================================== -->
-
-  <style>
-    main {
-      margin-top: 120px;
-    }
-
-    #reset {
-      cursor: pointer;
-    }
-
-    #canvas {
-      border:1px solid red;
-      width: 100%;
-      height: 100%;
-      display: none;
-    }
-  </style>
+  <!-- ========================================================================== -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- ========================================================================== -->
 </head>
 
 <body class="black-skin">
 
-    <header class="topbar mb-4">
-      <?php include 'header.php'; ?>
-    </header>
-      <!--Main Navigation-->
+  <?php include 'header.php'; ?>
 
   <!--Main layout-->
   <main>
@@ -150,23 +124,23 @@
   </div>
 </footer>
 
-  <!--==================================================================================
+  <!--========================================================================
     OTHER URL FOR BACKGROUND IMAGE
 
     https://encrypted-tbn0.gstatic.com/images q=tbn:ANd9GcRL3-flGflTKrF0K8-PnWFxG_uYHA27bc8S00KhEfAfWotk76En
 
-  ===================================================================================-->
+  =========================================================================-->
   <!--Main layout-->
 
-    <!-- ================================================================================== -->
+    <!-- ====================================================================== -->
     <script src="assets/js/plugins/jquery-3.3.1.min.js"></script>
-    <!-- ================================================================================== -->
+    <!-- ====================================================================== -->
     <script src="assets/js/plugins/bootstrap.min.js"></script>
-    <!-- ================================================================================== -->
+    <!-- ====================================================================== -->
     <script src="assets/js/plugins/mdb.js"></script>
-    <!-- ================================================================================== -->
-    <script src="assets/js/plugins/addons/sweetalert.min.js"></script>
-    <!-- ================================================================================== -->
+    <!-- ====================================================================== -->
+    <script src="assets/js/plugins/sweetalert.min.js"></script>
+    <!-- ====================================================================== -->
 
     <!-- CDN -->
     <script>
