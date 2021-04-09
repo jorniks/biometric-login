@@ -10,7 +10,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dashboard - <?=getenv('APP_NAME')?></title>
+  <title>Login - <?=getenv('APP_NAME')?></title>
   <!-- ========================================================================== -->
   <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
   <!-- ========================================================================== -->
@@ -28,8 +28,74 @@
 
   <!--Main layout-->
   <main>
-    <div class="container-fluid">
-      
+    <div class="container-fluid my-5">
+
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div style="height: 80vh">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="container">
+              
+                <div class="card">
+                  <div class="d-flex justify-content-center py-3">
+                    <!-- CANVAS FOR DISPLAYING CAPTURED IMAGE -->
+                    <div class="d-none view" id="canvasDiv">
+                      <img src="" class="img-fluid canvasImage" alt=" ">
+                      <div class="mask pattern-1 flex-center">
+                        <p class="white-text mx-4 my-2" style="height: 100%; width: 100%; text-align: right;">
+                        <span class="badge red px-2" id="reset">Reset</span>
+                        </p>
+                      </div>
+                      <canvas id="canvas" max-width="200" height="200"></canvas>
+                      <div class="text-center">
+                      </div>
+                    </div>
+                    <!-- CANVAS FOR DISPLAYING CAPTURED IMAGE -->
+
+                    <div class="view" id="videoView">
+                      <video id="video" max-width="200" height="200" autoplay></video>
+                      <div class="mask pattern-1 flex-center waves-effect waves-light" id="snap">
+                        <p class="white-text">
+                          <i class="fa fa-2x fa-camera"></i>
+                          <!-- Click to capture -->
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card-body px-lg-4 pt-2">
+                    <form method="POST" class="my-3">
+                      <div class="mb-4">
+                        <input type="text" id="userID" name="username" class="form-control" placeholder="Username" required>
+                      </div>
+                      <div class="mb-4">
+                        <input type="text" id="password" name="password" class="form-control" placeholder="Alternative Password" required>
+                      </div>
+
+                      <div class="text-center">
+                        <button class="btn btn-outline-success btn-md waves-effect z-depth-0" name="logUser" type="submit">Login</button>
+                      </div>
+                    
+                      <div class="col-md-12 text-center">
+                        <div class="spinner-grow spinner-grow-sm text-success d-none" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                        <small id="spinText"></small>
+                      </div>
+                    </form>
+                    <div class="my-3 text-right">
+                      Have an account? <a href="login/">Login</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 		</div>
   </main>
   
