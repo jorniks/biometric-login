@@ -48,7 +48,7 @@
 
     public function loginByFace() {
       if(isset($_POST['logUser'])) {
-        $username = $_POST['logUser'];
+        $username = $_POST['username'];
         $dataURL = $_POST['dataURL'];
         $canvasImage = $this->encodeToImage($dataURL);
         $fileImage = file_get_contents("../assets/img/".$username.".png");
